@@ -35,11 +35,11 @@ function App() {
           <>
             <Navbar />
             <Hero />
-            <YouTubeSection />
             <IntroVideos />
             <Projects />
             <ArtGallery /> 
             <AboutMe />  
+            <YouTubeSection />
             <Blog />          
             <Contact />
             <Footer />

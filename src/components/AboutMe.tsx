@@ -477,17 +477,16 @@ const AboutMe = () => {
       </Dialog>
       {/*  yaha pe tha wo content ... ye do bracket k bich me dal de*/}
 
-      <div className="relative z-20 mt-10 w-full lg:col-span-2">
-              <div className="relative w-full overflow-hidden bg-transparent py-12">
-                {/* Books That Shaped Me Section */}
-      <div className="mt-12 flex flex-col items-center text-center">
-        <h2 className="text-3xl font-extrabold text-gray-800 mb-4">
-          📚 Book's that shaped me
-        </h2>
-        <p className="text-gray-600 max-w-2xl">
-          A collection of books that have influenced my thoughts and perspectives.
-        </p>
-      </div>
+      {/* <div className="relative z-20 mt-10 w-full lg:col-span-2">
+        <div className="relative w-full overflow-hidden bg-transparent py-12">
+          <div className="mt-12 flex flex-col items-center text-center">
+            <h2 className="text-3xl font-extrabold text-gray-800 mb-4">
+              📚 Book's that shaped me
+            </h2>
+            <p className="text-gray-600 max-w-2xl">
+              A collection of books that have influenced my thoughts and perspectives.
+            </p>
+          </div>
 
           <div
             ref={carouselRef}
@@ -521,7 +520,7 @@ const AboutMe = () => {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
 
       
             {/* Dialog Box */}
