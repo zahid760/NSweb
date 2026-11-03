@@ -8,10 +8,10 @@ interface NavbarProps {
 
 const navItems = [
   { name: 'Home', href: '#home' },
-  { name: 'YouTube', href: '#youtube' },
   { name: 'Projects', href: '#projects' },
-  { name: 'Blog', href: '#blog' },
   { name: 'Art Gallery', href: '#gallery' },
+  { name: 'YouTube', href: '#youtube' },
+  { name: 'Blog', href: '#blog' },
   { name: 'Contact', href: '#contact' }
 ];
 

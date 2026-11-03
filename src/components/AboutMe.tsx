@@ -39,9 +39,10 @@ import thinkFastNslow from "../assets/images/thinkFastNslow.jpg"
 
 
 import resume from "../assets/images/CVnilax.pdf"
+import experienceCertificate from "../assets/images/ExperienceCertifcate-NilaxShirke.pdf";
 import '../styles/AboutMe.css';
 import { Dialog } from '@headlessui/react';
-import { X, FileText } from 'lucide-react';
+import { X, FileText, Award } from 'lucide-react';
 
 
 const icons = [
@@ -227,6 +228,7 @@ const carouselItems: CarouselItem[] = [
 const AboutMe = () => {
   const [index, setIndex] = useState(0);
   const [isResumeOpen, setIsResumeOpen] = useState(false);
+  const [isCertificateOpen, setIsCertificateOpen] = useState(false);
 
    const [selectedImage, setSelectedImage] = useState<string | null>(null);
     const [isOpen, setIsOpen] = useState(false);
@@ -378,7 +380,7 @@ const AboutMe = () => {
       </div>
     </div>
 
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
       {/* YouTube Subscribe Box */}
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
@@ -434,6 +436,79 @@ const AboutMe = () => {
           </div>
         </div>
       </div>
+
+      {/* Experience Certificate Section */}
+      <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 w-full">
+        <div className="bg-white flex items-center justify-center p-4 w-full h-auto sm:h-40">
+          <div className="relative group w-full">
+            {/* Animated border */}
+            <div className="absolute -inset-1">
+              <div className="w-full h-full rotate-180 opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200">
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-blue-500 via-purple-500 to-blue-500 animate-border-flow"></div>
+                <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-transparent via-white to-transparent blur-sm animate-light-patch"></div>
+              </div>
+            </div>
+
+            {/* Experience Certificate Content */}
+            <div className="relative flex flex-col items-center px-6 sm:px-8 py-4 sm:py-6 bg-white rounded-lg leading-none border border-gray-100 shadow-sm w-full">
+              <div className="flex flex-col items-center space-y-4 sm:space-y-6 text-center">
+                <h1 className="text-2xl sm:text-3xl font-bold bg-gradient-to-r from-sky-500 to-blue-700 bg-clip-text text-transparent">
+                  Experience Certificate
+                </h1>
+                <button 
+                  onClick={() => setIsCertificateOpen(true)}
+                  className="group relative inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 font-medium tracking-wide text-white transition-all duration-500 ease-in-out bg-gradient-to-r from-sky-500 to-blue-700 rounded-lg hover:from-purple-500 hover:to-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2"
+                >
+                  <span className="absolute w-0 h-0 transition-all duration-300 ease-out bg-white rounded-full group-hover:w-32 group-hover:h-32 opacity-10"></span>
+                  <Award className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+                  <span>View Certificate</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Experience Certificate Dialog Box */}
+      <Dialog open={isCertificateOpen} onClose={() => setIsCertificateOpen(false)} className="relative z-50">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+          className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 p-4"
+        >
+          <div className="bg-white rounded-lg shadow-lg p-5 sm:p-6 max-w-3xl w-full relative">
+            <button
+              onClick={() => setIsCertificateOpen(false)}
+              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700"
+            >
+              <X size={24} />
+            </button>
+            <h3 className="text-lg sm:text-2xl font-bold text-black mb-4">
+              Experience Certificate
+            </h3>
+
+            {/* PDF Viewer - Mobile Responsive */}
+            <div className="w-full h-[400px] sm:h-[500px]">
+              <iframe src={experienceCertificate} className="w-full h-full rounded-md hidden sm:block" title="Experience Certificate PDF"></iframe>
+              <object data={experienceCertificate} type="application/pdf" className="w-full h-full rounded-md block sm:hidden">
+                <p className="text-center text-gray-700 mt-4">
+                  PDF not supported on mobile.  
+                  <a href={experienceCertificate} target="_blank" rel="noopener noreferrer" className="text-red-500 font-semibold underline ml-1">
+                    Click here to view
+                  </a>
+                </p>
+              </object>
+            </div>
+            {/* Download PDF Button for Mobile */}
+            <div className="text-center mt-4 sm:hidden">
+              <a href={experienceCertificate} download className="bg-red-500 text-white px-4 py-2 rounded-md flex items-center justify-center w-full">
+                <FileText size={18} className="mr-2" /> Download PDF
+              </a>
+            </div>
+          </div>
+        </motion.div>
+      </Dialog>
 
       {/* Resume Dialog Box */}
       <Dialog open={isResumeOpen} onClose={() => setIsResumeOpen(false)} className="relative z-50">
